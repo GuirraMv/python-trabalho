@@ -34,12 +34,13 @@ def consultar_funcionarios():
         try:
             if opcao == 1:
                 #exibe todos os funcionarios disponiveis na lista
-                print(lista_funcionarios)
+                for funcionario in lista_funcionarios:
+                    print(funcionario)
             elif opcao == 2:
-                id_funcionario = int(input("Digite o id do funcionario: "))
+                id = int(input("Digite o id do funcionario: "))
                 for id_funcionario in lista_funcionarios:
                     #compara o id digitado pelo usuario com os que estao disponiveis na lista
-                    if id_funcionario["id"] == id_funcionario:
+                    if id_funcionario["id"] == id:
                         print(id_funcionario)
             elif opcao == 3:
                 setor = input("Digite o setor do funcionario: ")
