@@ -39,13 +39,13 @@ def consultar_funcionarios():
                 id_funcionario = int(input("Digite o id do funcionario: "))
                 for id_funcionario in lista_funcionarios:
                     #compara o id digitado pelo usuario com os que estao disponiveis na lista
-                    if id_funcionario["id" == id_funcionario]:
+                    if id_funcionario["id"] == id_funcionario:
                         print(id_funcionario)
             elif opcao == 3:
                 setor = input("Digite o setor do funcionario: ")
                 for funcionarios_setor in lista_funcionarios:
                     # compara o setor digitado pelo usuario com os que estao disponiveis na lista
-                    if funcionarios_setor["setor" == setor]:
+                    if funcionarios_setor["setor"] == setor:
                         print(funcionarios_setor)
             elif opcao == 4:
                 #retornar ao menu principal
@@ -61,13 +61,14 @@ def remover_funcionario():
         try:
             print("---- REMOVER FUNCIONÁRIO ----")
             id_funcionario = int(input("Digite o id do funcionario: "))
-            for id_funcionario in lista_funcionarios:
+            for id_funcionarios in lista_funcionarios:
                 # compara o id digitado pelo usuario com os que estao disponiveis na lista
-                if id_funcionario["id"] == id_funcionario:
-
-                    return lista_funcionarios.remove(id_funcionario)
+                if id_funcionarios["id"] == id_funcionario:
+                    lista_funcionarios.remove(id_funcionarios)
+                    print("Funcionario removido!")
+                    return lista_funcionarios
             else:
-                print("Id inválido")
+                print("Id não encontrado")
         except ValueError:
             print("Id inválido")
 
