@@ -7,17 +7,19 @@ valor_camisa: int = 0
 numero_camisetas: int = 0
 total_compra: float = 0
 
+#definindo os valores das camisas
 MCS: float = 1.80
 MLS: float = 2.10
 MCE: float = 2.90
 MLE: float = 3.20
 
-
+# funçãp que escolhe as camisas que o usuário deseja e armazena a quantidade
 def escolha_modelo():
     valor: int = 0
     global valor_camisa
     global modelo_camisa
 
+    #while que interage com o usuário e armazena o modelo e o valor das camisas selecionadas
     while True:
         modelo_selecionado = input(
             "Informe o modelo desejado da camisa\n Utilize MCS para Camisa Manga Curta Simples\n MLS para Camisa Manga Longa Simples\n MCE para Camisa manga curta com estampa \n MLE para Camisa  manga longa com estampa: ")
@@ -46,7 +48,7 @@ def escolha_modelo():
     valor_camisa += valor
     return valor_camisa, modelo_camisa
 
-
+# calcula o numero de camisetas e aplica desconto
 def num_camisetas(valor_camisa):
     global numero_camisetas
     while True:
@@ -74,7 +76,7 @@ def num_camisetas(valor_camisa):
     camisa_desconto = total - valor_desconto
     return camisa_desconto, numero_camisetas
 
-
+# calcula a taxa de frete
 def frete():
     frete = 0
     global taxa_frete
@@ -104,6 +106,7 @@ def main():
     escolha_modelo()
     num_camisetas(valor_camisa)
     frete()
+    #calcula o total da compra com os dados passados pela função
     total_compra += (valor_camisa * numero_camisetas) + taxa_frete
     print(
         f"Resumo da compra: Camiseta: {modelo_camisa}, Quantidade: {numero_camisetas}, frete: R${taxa_frete}.\n O total com desconto e frete ficou em: R${total_compra}")
